@@ -1,0 +1,72 @@
+{
+    "name": "rvxlab/laravel-notification-channel-dailybin",
+    "description": "Notification Channel for Dailybin",
+    "license": "MIT",
+    "type": "library",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "RVxLab",
+            "email": "code@rvx.works"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/notifications": "^12",
+        "illuminate/support": "^12"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.49",
+        "larastan/larastan": "^3.9",
+        "orchestra/testbench": "^10.9",
+        "pestphp/pest": "^3.0",
+        "phpstan/extension-installer": "^1.4",
+        "rector/rector": "^2.3",
+        "rvxlab/php-cs-fixer-rules": "^2.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "RVxLab\\DailyBinNotificationChannel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "composer normalize"
+        ],
+        "post-autoload-dump": [
+            "bun install",
+            "@lefthook:install"
+        ],
+        "code-style": [
+            "@rector",
+            "@lint",
+            "@phpstan"
+        ],
+        "lefthook:install": "bunx lefthook install",
+        "lint": "./vendor/bin/php-cs-fixer fix",
+        "phpstan": "./vendor/bin/phpstan analyse",
+        "rector": "./vendor/bin/rector process",
+        "test": "./vendor/bin/pest"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RVxLab\\DailyBinNotificationChannel\\DailyBinNotificationChannelServiceProvider"
+            ]
+        }
+    }
+}
