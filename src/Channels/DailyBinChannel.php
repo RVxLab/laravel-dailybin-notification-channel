@@ -40,7 +40,7 @@ class DailyBinChannel
         /**
          * @var PendingRequest $http
          *
-         * @phpstan-ignore method.notFound (this is a macro)
+         * @phpstan-ignore staticMethod.notFound (this is a macro)
          */
         $http = Http::dailyBin();
 
