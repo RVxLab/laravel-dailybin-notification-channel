@@ -37,7 +37,11 @@ class DailyBinChannel
         /** @noinspection PhpConditionAlreadyCheckedInspection */
         Assert::isInstanceOf($message, DailyBinMessage::class);
 
-        /** @var PendingRequest $http */
+        /**
+         * @var PendingRequest $http
+         *
+         * @phpstan-ignore staticMethod.notFound (this is a macro)
+         */
         $http = Http::dailyBin();
 
         return $http
