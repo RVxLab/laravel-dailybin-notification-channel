@@ -12,7 +12,7 @@ beforeEach(function (): void {
 
 it('can send a notification via an anonymous notification', function (): void {
     Http::fake([
-        'https://dailybin.dev/api/v1/mail' => Http::response([
+        'https://api.dailybin.dev/v1/mail' => Http::response([
             'accepted' => true,
             'duplicate' => false,
             'digestDate' => '2026-02-15',
@@ -29,7 +29,7 @@ it('can send a notification via an anonymous notification', function (): void {
 
     $data = json_decode((string) $request->body(), true, flags: JSON_THROW_ON_ERROR);
 
-    expect($request->url())->toBe('https://dailybin.dev/api/v1/mail')
+    expect($request->url())->toBe('https://api.dailybin.dev/v1/mail')
         ->and($data['section'])->toBe('test')
         ->and($data['content'])->toBe("# Test Notification\n\nThis is a test notification!")
         ->and($data['source'])->toBe('Unit Tests')
@@ -50,7 +50,7 @@ it('can send a notification via a notifiable object', function (): void {
 
 
     Http::fake([
-        'https://dailybin.dev/api/v1/mail' => Http::response([
+        'https://api.dailybin.dev/v1/mail' => Http::response([
             'accepted' => true,
             'duplicate' => false,
             'digestDate' => '2026-02-15',
@@ -66,7 +66,7 @@ it('can send a notification via a notifiable object', function (): void {
 
     $data = json_decode((string) $request->body(), true, flags: JSON_THROW_ON_ERROR);
 
-    expect($request->url())->toBe('https://dailybin.dev/api/v1/mail')
+    expect($request->url())->toBe('https://api.dailybin.dev/v1/mail')
         ->and($data['section'])->toBe('test')
         ->and($data['content'])->toBe("# Test Notification\n\nThis is a test notification!")
         ->and($data['source'])->toBe('Unit Tests')

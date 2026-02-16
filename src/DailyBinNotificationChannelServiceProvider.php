@@ -27,7 +27,7 @@ final class DailyBinNotificationChannelServiceProvider extends ServiceProvider
                 /** @var string $token */
                 $token = config('service.dailybin.token', '');
 
-                return Http::baseUrl('https://dailybin.dev/api/v1')
+                return Http::baseUrl('https://api.dailybin.dev/v1')
                     ->contentType('application/json')
                     ->accept('application/json')
                     ->withToken($token);
