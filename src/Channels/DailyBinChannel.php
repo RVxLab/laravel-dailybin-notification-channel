@@ -22,7 +22,7 @@ class DailyBinChannel
             return null;
         }
 
-        $route = $notifiable->routeNotificationFor('dailybin', $notification);
+        $route = $notifiable->routeNotificationFor('dailyBin', $notification);
 
         if (false === $route) {
             return null;

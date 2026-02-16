@@ -15,7 +15,7 @@ final class DailyBinNotificationChannelServiceProvider extends ServiceProvider
     public function register(): void
     {
         Notification::resolved(function (ChannelManager $service): void {
-            $service->extend('dailybin', fn (): DailyBinChannel => new DailyBinChannel());
+            $service->extend('dailyBin', fn (): DailyBinChannel => new DailyBinChannel());
         });
     }
 
