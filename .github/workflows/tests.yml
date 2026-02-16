@@ -33,9 +33,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor
-          key: composer-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
+          key: composer-${{ matrix.php }}-${{ matrix.prefer-flag }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            composer-${{ matrix.php }}-
+            composer-${{ matrix.php }}-${{ matrix.prefer-flag }}-
       
       - name: Install dependencies
         run: composer update --${{ matrix.prefer-flag }} --prefer-dist --no-interaction --no-progress

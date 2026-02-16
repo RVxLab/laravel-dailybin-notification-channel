@@ -27,9 +27,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor
-          key: composer-8.2-${{ hashFiles('**/composer.lock') }}
+          key: composer-8.2-prefer-stable-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            composer-8.2-
+            composer-8.2-prefer-stable
       
       - name: Install dependencies
         run: composer update --prefer-stable --prefer-dist --no-interaction --no-progress
