@@ -11,3 +11,10 @@ php = {
     # For the moment, macOS uses Herd
     os = ["linux"]
 }
+
+[tasks.init]
+description = "Initialize the project"
+run = '''
+lefthook install
+pnpm install
+'''
