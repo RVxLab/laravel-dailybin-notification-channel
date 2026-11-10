@@ -12,4 +12,4 @@ pre-commit:
 commit-msg:
   jobs:
     - name: Commit Lint
-      run: "npx commitlint --edit {0}"
+      run: "pnpx commitlint --edit {0}"
