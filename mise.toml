@@ -1,4 +1,12 @@
 [tools]
-bun = "1.3"
+node = "24"
 jq = "1.8"
-lefthook = "2.1"
+lefthook = "2.2.2"
+
+# See https://github.com/nunomaduro/static-php-builds
+php = {
+    version = "8.3",
+
+    # For the moment, macOS uses Herd
+    os = ["linux"]
+}
